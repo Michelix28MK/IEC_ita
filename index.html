@@ -8,12 +8,7 @@
 </head>
 <body>
     <div id="map">
-        <img src="EU_Map.jpg" alt="carta europea" mapname="#carta">
-        <!--ambiente di mappaggio  -->
-        <map name="carta">
-            <!--puntatori-->
-        </map>
-
+        <img src="EU_Map_dsk.jpg" alt="carta europea" mapname="#carta"">
         <!-- utilizzo immagini in posizione relativa per posizionamento sulle nazioni-->
         <img src="" alt="puntatore italia" onclick="">
     </div>
@@ -28,16 +23,29 @@
     }
     body{
         display: grid; /*disposizione degli elementi in due colonne larghe 1/2 dello schermo ognuna*/
-        grid-template-columns: 50mw 50mw; 
+        grid-template-columns: 50vw 50vw; 
+    }
+    #map{
+        display: flex;
+        /*order:*/
     }
     #map img{
-        width: 100%; /* imposizione larghezza immagine uguale alla larghezza di 1/2 schermo e allineamento in centro*/
+        position: fixed;
+        width: 50vw; /* imposizione larghezza immagine uguale alla larghezza di 1/2 schermo e allineamento in centro*/
+        }
+    div{
+        border: solid black 3px;
     }
-    #map pointer{
-        
-    }
+    /*impostare @media mobile per ovviare al problema del cambio layout
+    top: 50%;
+        left: 25%;
+        transform: translate(-50%, -25%);
+        */ 
+
 </style>
 <script type="">
     // integrazione 
+    
+    //z index
 </script>
 </html>
