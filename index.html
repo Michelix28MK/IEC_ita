@@ -8,16 +8,18 @@
 </head>
 <body>
     <div>
-        <img src="EU_Map_dsk.jpg" alt="carta europea" id="map">
+        <img alt="carta europea" id="map">
         <!-- utilizzo immagini in posizione relativa per posizionamento sulle nazioni-->
-        <img src="map-pin-icon.svg" alt="puntatore italia" onclick="italia()" class="ping" style="top: 76vh; left: 28vw;">
-        <img src="map-pin-icon.svg" alt="puntatore germania" onclick="germania()" class="ping" style="top: 62vh; left: 26.5vw;">
-        <img src="map-pin-icon.svg" alt="puntatore francia" onclick="francia()" class="ping" style="top: 65vh; left: 16vw;">
-        <img src="map-pin-icon.svg" alt="puntatore inghilterra" onclick="inghilterra()" class="ping" style="top: 48vh; left: 12.85vw;">
-    </div>
-    </div id="text">
+        <img src="map-pin-icon.svg" alt="puntatore italia" onclick="italia()" class="ping" style="top: 68vh; left: 28vw;">
+        <img src="map-pin-icon.svg" alt="puntatore germania" onclick="germania()" class="ping" style="top: 55vh; left: 26.5vw;">
+        <img src="map-pin-icon.svg" alt="puntatore francia" onclick="francia()" class="ping" style="top: 58vh; left: 18vw;">
+        <img src="map-pin-icon.svg" alt="puntatore inghilterra" onclick="inghilterra()" class="ping" style="top: 45vh; left: 14vw;">
+    </div >
+    <div id="text">
         <!-- generazione dei contenuti tramite funione JS accompagnata da arrey e matrici per registrazione articoli, conta articoli e registrazione immagini -->
-    <div>
+        <h1>Iec 2022/2023</h2>
+        <p>Vi presento il prototipo di mappa concettuale per il progetto I.E.C. 2022/2023 della classe 5L</p>
+    </div>
 </body>
 <style>
     *{
@@ -26,24 +28,62 @@
     }
     body{
         display: grid; /*disposizione degli elementi in due colonne larghe 1/2 dello schermo ognuna*/
-        grid-template-columns: 50vw 50vw; 
+        grid-template-columns: 50vw 50vw;
+        background-image: url(Old-world-map.jpg);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 97vh;
     }
     #map{
+        content: url(EU_Map_dsk.jpg);
         position: fixed;
-        width: 50vw; /* imposizione larghezza immagine uguale alla larghezza di 1/2 schermo e allineamento in centro*/
+        width: 43vw;
+        left: 3.5vw;
+        top: 1.5vh; /* imposizione larghezza immagine uguale alla larghezza di 1/2 schermo e allineamento in centro*/
         z-index: -1;
-    }
-    div{
-        border: solid black 3px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        filter: opacity(2) saturate(110%) drop-shadow(8px 8px 10px gray);
     }
     .ping{
         width: 1.5vw;
         position: relative;
+        filter: opacity(0.8);
+    }
+    .ping:hover{
+        filter: opacity(30) saturate(400%) drop-shadow(8px 8px 10px gray);
+    }
+    h1, p{
+        text-align: center;
+        background-color: rgba(240, 255, 255, 0.705);
+    }
+    h1{
+        text-transform: uppercase;
+        padding: 3vh;
+    }
+    p{
+        /*text-align-last: justify;*/
+        vertical-align: text-bottom;
+        font-size: large;
+    }
+    @media screen and (max-width: 1080px) {
+        body{
+            grid-template-columns: auto;
+            grid-template-rows: 50vh 50vh; 
+        }
+        #map{
+            content: url(EU_Map.jpg); /*regolare centratura mappa e puntatori*/
+            position: block;
+            left: auto;
+            top: auto;  
+
+        }
     }
     /*impostare @media mobile per ovviare al problema del cambio layout
     top: 50%;
-        left: 25%;
-        transform: translate(-50%, -25%);
+    left: 25%;
+    transform: translate(-50%, -25%);
         //z index
         // integrazione 
         */ 
