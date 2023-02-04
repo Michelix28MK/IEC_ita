@@ -7,10 +7,13 @@
     <title>IEC Italiano classe 5L A.S. 2022/2023</title>
 </head>
 <body>
-    <div id="map">
-        <img src="EU_Map_dsk.jpg" alt="carta europea" mapname="#carta"">
+    <div>
+        <img src="EU_Map_dsk.jpg" alt="carta europea" id="map">
         <!-- utilizzo immagini in posizione relativa per posizionamento sulle nazioni-->
-        <img src="" alt="puntatore italia" onclick="">
+        <img src="map-pin-icon.svg" alt="puntatore italia" onclick="italia()" class="ping" style="top: 76vh; left: 28vw;">
+        <img src="map-pin-icon.svg" alt="puntatore germania" onclick="germania()" class="ping" style="top: 62vh; left: 26.5vw;">
+        <img src="map-pin-icon.svg" alt="puntatore francia" onclick="francia()" class="ping" style="top: 65vh; left: 16vw;">
+        <img src="map-pin-icon.svg" alt="puntatore inghilterra" onclick="inghilterra()" class="ping" style="top: 48vh; left: 12.85vw;">
     </div>
     </div id="text">
         <!-- generazione dei contenuti tramite funione JS accompagnata da arrey e matrici per registrazione articoli, conta articoli e registrazione immagini -->
@@ -26,26 +29,38 @@
         grid-template-columns: 50vw 50vw; 
     }
     #map{
-        display: flex;
-        /*order:*/
-    }
-    #map img{
         position: fixed;
         width: 50vw; /* imposizione larghezza immagine uguale alla larghezza di 1/2 schermo e allineamento in centro*/
-        }
+        z-index: -1;
+    }
     div{
         border: solid black 3px;
+    }
+    .ping{
+        width: 1.5vw;
+        position: relative;
     }
     /*impostare @media mobile per ovviare al problema del cambio layout
     top: 50%;
         left: 25%;
         transform: translate(-50%, -25%);
+        //z index
+        // integrazione 
         */ 
 
 </style>
-<script type="">
-    // integrazione 
-    
-    //z index
+<script>
+    function italia(){
+        alert("funziona");
+    }
+    function inghilterra(){
+        alert("funziona");
+    }
+    function francia(){
+        alert("funziona");
+    }
+    function germania(){
+        alert("funziona");
+    }
 </script>
 </html>
