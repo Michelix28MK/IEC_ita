@@ -8,12 +8,16 @@
 </head>
 <body>
     <div>
-        <img alt="carta europea" id="map">
-        <!-- utilizzo immagini in posizione relativa per posizionamento sulle nazioni-->
+        <img alt="carta europea" id="map" usemap="#europa">
+        <map name="europa">
+            <area shape="rect" coords="34, 44, 500, 800 " href="" alt="Italia">
+        </map>
+        <!--
         <img src="map-pin-icon.svg" alt="puntatore italia" onclick="generazione(italia)" class="ping" style="top: 68vh; left: 28vw;">
         <img src="map-pin-icon.svg" alt="puntatore germania" onclick="generazione(germania)" class="ping" style="top: 55vh; left: 26.5vw;">
         <img src="map-pin-icon.svg" alt="puntatore francia" onclick="generazione(francia)" class="ping" style="top: 58vh; left: 18vw;">
         <img src="map-pin-icon.svg" alt="puntatore inghilterra" onclick="generazione(inghilterra)" class="ping" style="top: 45vh; left: 14vw;">
+        -->
     </div >
     <div id="text">
         <h1>Iec 2022/2023</h2>
@@ -45,13 +49,17 @@
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         filter: opacity(2) saturate(110%) drop-shadow(8px 8px 10px gray);
     }
-    .ping{
+    /*.ping{
         width: 1.5vw;
         position: fixed;
         filter: opacity(0.8);
     }
     .ping:hover{
         filter: opacity(30) saturate(400%) drop-shadow(8px 8px 10px gray);
+    }*/
+    area{
+        background-color: rgb(13, 194, 28);
+        border: solid red 3px;
     }
     div#text{
         text-align: center;
@@ -77,8 +85,7 @@
             left: auto;
             top: auto;
             width: auto;
-            height: 50vh;  
-
+            height: 50vh;
         }
     }
 </style>
@@ -100,12 +107,12 @@
 
     function generazione(stato){
         /*
-        let oldTitolo = document.getElementsByClassName("dc");
-        let oldImg = document.getElementsByClassName("dc");
-        let oldParagrafo = document.getElementsByClassName("dc");
-        oldTitolo.removeChild(oldTitolo);
-        oldImg.removeChild(oldImg);
-        oldParagrafo.removeChild(oldParagrafo);
+            let oldTitolo = document.getElementsByClassName("dc");
+            let oldImg = document.getElementsByClassName("dc");
+            let oldParagrafo = document.getElementsByClassName("dc");
+            oldTitolo.removeChild(oldTitolo);
+            oldImg.removeChild(oldImg);
+            oldParagrafo.removeChild(oldParagrafo);
         */
         let titolo = document.createElement("h2");
         titolo.innerText = "Benvenuuti in " + stato.name;
