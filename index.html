@@ -1,1 +1,189 @@
-!!!
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IEC Italiano classe 5L A.S. 2022/2023</title>
+</head>
+<body>
+    <div>
+        <img alt="carta europea" id="map">
+        <!-- utilizzo immagini in posizione relativa per posizionamento sulle nazioni-->
+        <img src="map-pin-icon.svg" alt="puntatore italia" onclick="generazione(italia)" class="ping" id="it">
+        <img src="map-pin-icon.svg" alt="puntatore germania" onclick="generazione(germania)" class="ping" id="gm">
+        <img src="map-pin-icon.svg" alt="puntatore francia" onclick="generazione(francia)" class="ping" id="fr">
+        <img src="map-pin-icon.svg" alt="puntatore inghilterra" onclick="generazione(inghilterra)" class="ping" id="ig">
+    </div >
+    <div id="text">
+        <h1>Iec 2022/2023</h2>
+        <p>Vi presento il prototipo di mappa concettuale per il progetto I.E.C. 2022/2023 della classe 5L</p>
+    </div>
+</body>
+<style>
+    *{
+        margin: 0;
+        border: 0;
+    }
+    body{
+        display: grid; /*disposizione degli elementi in due colonne larghe 1/2 dello schermo ognuna*/
+        grid-template-columns: 50vw 50vw;
+        background-image: url(Old-world-map.jpg);
+        background-position: center;
+        background-size: cover;
+        background-repeat:repeat-y;
+        height: 97vh;
+    }
+    #map{
+        content: url(EU_Map_dsk.jpg);
+        position: fixed;
+        width: 43vw;
+        left: 3.5vw;
+        top: 1.5vh; /* imposizione larghezza immagine uguale alla larghezza di 1/2 schermo e allineamento in centro*/
+        /*z-index: -1;*/
+        border-radius: 8px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        filter: opacity(2) saturate(110%) drop-shadow(8px 8px 10px gray);
+    }
+    .ping{
+        width: 1.5vw;
+        position: fixed;
+        filter: opacity(0.8);
+    }
+    #it{
+        top: 68vh; 
+        left: 28vw;
+    }
+    #gm{
+        top: 55vh; 
+        left: 28vw;
+    }
+    #fr{
+        top: 58vh; 
+        left: 20vw;
+    }
+    #ig{
+        top: 45vh; 
+        left: 19vw;
+    }
+    .ping:hover{
+        filter: opacity(30) saturate(400%) drop-shadow(8px 8px 10px gray);
+    }
+    div#text{
+        text-align: center;
+        background-color: rgba(240, 255, 255, 0.705);
+    }
+    h1{
+        text-transform: uppercase;
+        padding: 3vh;
+    }
+    p{
+        /*text-align-last: justify;*/
+        vertical-align: text-bottom;
+        font-size: large;
+    }
+    @media screen and (max-width: 1430px) {
+        body{
+            grid-template-columns: auto;
+            grid-template-rows: 55vh 45vh;
+        }
+        #map{
+            content: url(EU_Map.jpg); /*regolare centratura mappa e puntatori*/
+            left: 50vw;
+            margin-left: -25vw;
+            width: auto;
+            height: 50vh;
+        }
+        #it{
+            top: 35vh; 
+            left: 50vw;
+        }
+        #gm{
+            top: 29vh; 
+            left: 50vw;
+        }
+        #fr{
+            top: 31vh; 
+            left: 42vw;
+        }
+        #ig{
+            top: 24vh; 
+            left: 41vw;
+        }
+    }
+    /*1920 x 1080*/
+    @media screen and (max-height: 670px) {
+        body{
+            grid-template-columns: auto;
+            grid-template-rows: 55vh 45vh;
+            overflow: scroll;
+        }
+        #map{
+            content: url(EU_Map.jpg);
+            left: 50vw;
+            margin-left: -25vw;
+            width: auto;
+            height: 50vh;
+        }
+        #it{
+            top: 35vh; 
+            left: 50vw;
+        }
+        #gm{
+            top: 29vh; 
+            left: 50vw;
+        }
+        #fr{
+            top: 31vh; 
+            left: 42vw;
+        }
+        #ig{
+            top: 24vh; 
+            left: 41vw;
+        }
+    }
+</style>
+<script>
+    class nazione{
+        constructor(name, srcBandiera, descrizione){
+            this.name = name;
+            this.srcBandiera = srcBandiera;
+            this.descrizione =descrizione;
+        }
+    }
+    
+    let italia = new nazione("Italia", "", "bla bla");
+    let inghilterra = new nazione("Inghilterra", "hi ho hi hhi");
+    let francia = new nazione("Francia", "", "wi wi wi");
+    let germania = new nazione("Germania", "" , "yah yah");
+
+    let contenitore = document.getElementById("text");
+
+    function generazione(stato){
+        /*
+        let oldTitolo = document.getElementsByClassName("dc");
+        let oldImg = document.getElementsByClassName("dc");
+        let oldParagrafo = document.getElementsByClassName("dc");
+        oldTitolo.removeChild(oldTitolo);
+        oldImg.removeChild(oldImg);
+        oldParagrafo.removeChild(oldParagrafo);
+        */
+        let titolo = document.createElement("h2");
+        titolo.innerText = "Benvenuuti in " + stato.name;
+        titolo.classList.add = "dc";
+
+        let bandiera = document.createElement("img");
+        bandiera.src = stato.srcBandiera;
+        bandiera.alt = "Bandiera " + stato.name;
+        bandiera.classList.add = "dc"; 
+
+        let paragrafo = document.createElement("p");
+        paragrafo.innerText = stato.descrizione;
+        paragrafo.classList.add = "dc";
+    
+        contenitore.appendChild(titolo);
+        contenitore.appendChild(bandiera);
+        contenitore.appendChild(paragrafo);
+    }
+</script>
+</html>
